@@ -1,5 +1,5 @@
-import 'package:ceiba/users_manager/models/user_model.dart';
 import 'package:ceiba/users_manager/repository/iuser_repository.dart';
+import 'package:ceiba/users_manager/repository/models/user_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
