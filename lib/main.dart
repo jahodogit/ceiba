@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ceiba/users_manager/repository/models/post_model.dart';
 import 'package:ceiba/users_manager/repository/models/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
   Future<bool> initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     await Hive.initFlutter(directory.path);
-
+    Hive.registerAdapter(UserAdapter());
+    Hive.registerAdapter(PostAdapter());
     Box<User> users = await Hive.openBox<User>("users");
 
     return true;

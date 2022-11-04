@@ -10,6 +10,8 @@ class UserNetworkRepository extends IUserRepository {
 
     Iterable object = convert.json.decode(response.body);
 
+    print(object);
+
     if (response.statusCode == 200) {
       return object.map((user) => User.fromJson(user)).toList();
     } else {

@@ -10,12 +10,11 @@ class UsersManagerRepositoryController {
 
   final UserLocalRepository _userLocalRepository;
 
-  UsersManagerRepositoryController(this._userNetworkRepository, this._postNetworkRepository, this._userLocalRepository) {
-    _userLocalRepository.init();
-  }
+  UsersManagerRepositoryController(this._userNetworkRepository, this._postNetworkRepository, this._userLocalRepository);
 
   Future<List<User>> fetchAllUsers() async {
-    if (_userLocalRepository.validateDataExist()) {
+    await _userLocalRepository.init();
+    if (!_userLocalRepository.validateDataExist()) {
       return _userLocalRepository.getAllUsers();
     } else {
       return fetchUserAndPost();
