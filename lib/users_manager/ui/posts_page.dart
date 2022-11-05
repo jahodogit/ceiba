@@ -1,10 +1,8 @@
 import 'package:ceiba/themes/themes.dart';
-import 'package:ceiba/users_manager/controllers/user_manager_provider.dart';
 import 'package:ceiba/users_manager/repository/models/post_model.dart';
 import 'package:ceiba/users_manager/repository/models/user_model.dart';
 import 'package:ceiba/users_manager/ui/components/post_list_item_component.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PostPage extends StatefulWidget {
   final User user;
@@ -22,13 +20,18 @@ class _PostPageState extends State<PostPage> {
         title: const Text("Prueba de ingreso"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
-            child: Text(
-              "${widget.user.name}'s posts",
-              style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 20),
+            child: Column(
+              children: [
+                Text(
+                  "${widget.user.name}'s posts",
+                  style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text(widget.user.email),
+                Text(widget.user.phone)
+              ],
             ),
           ),
           //Post list

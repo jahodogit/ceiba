@@ -1,6 +1,7 @@
 import 'package:ceiba/themes/themes.dart';
 import 'package:ceiba/users_manager/repository/models/post_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class PostListItem extends StatelessWidget {
   final Post post;

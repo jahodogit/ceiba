@@ -6,7 +6,6 @@ import 'package:ceiba/users_manager/repository/models/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:ceiba/providers.dart';
-import 'package:ceiba/users_manager/controllers/user_manager_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
