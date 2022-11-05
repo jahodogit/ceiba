@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ceiba/themes/themes.dart';
 import 'package:ceiba/users_manager/repository/models/post_model.dart';
 import 'package:ceiba/users_manager/repository/models/user_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -35,9 +36,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Ceiba challenge',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
+        theme: CeibaTheme.generarTheme(),
         home: FutureBuilder(
           future: initDatabase(),
           builder: (_, snap) {
@@ -45,18 +44,21 @@ class MyApp extends StatelessWidget {
               return const UsersPage();
             } else {
               return Scaffold(
-                backgroundColor: Colors.green,
+                backgroundColor: primaryColor,
                 body: Center(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CircularProgressIndicator(
+                  children: [
+                    const CircularProgressIndicator(
                       color: Colors.white,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text("starting database"),
+                    Text(
+                      "starting database",
+                      style: TextStyle(color: secundaryColor, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 )),
               );
