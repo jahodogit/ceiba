@@ -4,19 +4,19 @@ import 'package:ceiba/users_manager/repository/models/user_model.dart';
 
 class UserManagerProvider extends ChangeNotifier {
   final UsersManagerRepositoryController _usersManagerRepositoryController;
-  List<User> _originalUsers = [];
+  List<User> originalUsers = [];
   List<User> usersDisplayList = [];
 
   UserManagerProvider(this._usersManagerRepositoryController);
 
   void fetchUsers() async {
-    _originalUsers = await _usersManagerRepositoryController.fetchAllUsers();
-    usersDisplayList = _originalUsers;
+    originalUsers = await _usersManagerRepositoryController.fetchAllUsers();
+    usersDisplayList = originalUsers;
     notifyListeners();
   }
 
   void searchUserByName(String name) {
-    usersDisplayList = _originalUsers.where((user) => user.name.contains(name)).toList();
+    usersDisplayList = originalUsers.where((user) => user.name.toUpperCase().contains(name.toUpperCase())).toList();
     notifyListeners();
   }
 }

@@ -32,19 +32,22 @@ class _UsersPageState extends State<UsersPage> {
           ),
           //User list
           Expanded(
-            child: userManagerProvider.usersDisplayList.isEmpty
-                ? Center(
-                    child: CircularProgressIndicator(
-                      color: primaryColor,
-                    ),
-                  )
-                : ListView.builder(
-                    itemCount: userManagerProvider.usersDisplayList.length,
-                    itemBuilder: (_, index) {
-                      User user = userManagerProvider.usersDisplayList[index];
-                      return ListItem(user: user);
-                    }),
-          ),
+              child: userManagerProvider.originalUsers.isEmpty
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
+                    )
+                  : userManagerProvider.usersDisplayList.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: userManagerProvider.usersDisplayList.length,
+                          itemBuilder: (_, index) {
+                            User user = userManagerProvider.usersDisplayList[index];
+                            return ListItem(user: user);
+                          })
+                      : const Center(
+                          child: Text("List is empty"),
+                        )),
         ],
       ),
     );
