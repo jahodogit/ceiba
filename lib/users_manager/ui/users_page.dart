@@ -1,7 +1,7 @@
 import 'package:ceiba/themes/themes.dart';
 import 'package:ceiba/users_manager/controllers/user_manager_provider.dart';
 import 'package:ceiba/users_manager/repository/models/user_model.dart';
-import 'package:ceiba/users_manager/ui/components/list_item_component.dart';
+import 'package:ceiba/users_manager/ui/components/user_list_item_component.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,12 +23,14 @@ class _UsersPageState extends State<UsersPage> {
       ),
       body: Column(
         children: [
+          //Search bar
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
               onChanged: (value) => userManagerProvider.searchUserByName(value),
             ),
           ),
+          //User list
           Expanded(
             child: userManagerProvider.usersDisplayList.isEmpty
                 ? Center(

@@ -4,10 +4,6 @@ Color primaryColor = const Color.fromARGB(255, 44, 100, 45);
 Color secundaryColor = Colors.white;
 Color primaryColorLigth = Colors.black;
 
-InputBorder textFieldBorderDecoration = OutlineInputBorder(
-  borderSide: BorderSide(color: primaryColor),
-);
-
 class CeibaTheme {
   static ThemeData generarTheme() {
     return ThemeData(

@@ -1,5 +1,6 @@
 import 'package:ceiba/themes/themes.dart';
 import 'package:ceiba/users_manager/repository/models/user_model.dart';
+import 'package:ceiba/users_manager/ui/posts_page.dart';
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
@@ -46,7 +47,7 @@ class ListItem extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PostPage(user: user))),
               child: const Text("VER PUBLICACIONES"),
             ),
           )
